@@ -1,5 +1,5 @@
 # profitapi-lib
-C++ Library that interfaces with profit365
+C++ Library that interfaces with profit365.eu
 
 Dependencies:<br>
 - [nlohmann/json](https://github.com/nlohmann/json) <br>
