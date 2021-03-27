@@ -6,4 +6,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 add_library(profitapi SHARED src/profitapi.cpp )
 
 install(TARGETS profitapi DESTINATION lib)
-install(FILES include/profitapi/profitapi.hpp DESTINATION include)
+install(FILES include/profitapi/profitapi.hpp DESTINATION include/profitapi)
+
+target_link_libraries(profitapi curl)
+target_link_libraries(profitapi ssl)
+target_link_libraries(profitapi crypto)
