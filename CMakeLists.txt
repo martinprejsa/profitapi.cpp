@@ -1,12 +1,22 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.4)
 project(profitapi)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 14)
+
+if(MSVC)
+    add_compile_options(/W4 /permissive-)
+else()
+    add_compile_options(-Wall -Wpedantic)
+endif()
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 add_library(profitapi SHARED src/profitapi.cpp )
 
-install(TARGETS profitapi DESTINATION lib)
-install(FILES include/profitapi/profitapi.hpp DESTINATION include/profitapi)
+if(UNIX)
+    install(TARGETS profitapi DESTINATION lib)
+    install(DIRECTORY include/ DESTINATION include/profitapi)
+else()
+    message(Well i dont know what to do now)
+endif()
 
 target_link_libraries(profitapi curl)
 target_link_libraries(profitapi ssl)
