@@ -1,3 +1,11 @@
+//
+// MIT License
+//
+// Copyright (c) 2021 WattMann
+//
+// Distributed under the MIT License. (See accompanying file LICENSE)
+//
+
 #pragma once
 
 #include <string>
@@ -31,8 +39,8 @@ namespace profitapi {
         std::string clientID;
         std::string clientSecret;
         std::string companyID;
-        std::string api_version = "1.6";
-        std::string profitapi_host = "api.profit365.eu";
+        std::string version = "1.6";
+        std::string host = "api.profit365.eu";
     };
 
     struct InvoiceRowData {
@@ -78,5 +86,5 @@ namespace profitapi {
     };
 
     KeyDataResponse generateKey(const Credentials &credentials, const KeyData &data);
-    InvoiceData createInvoice(const Credentials &credentials, InvoiceData &data);
+    // InvoiceData createInvoice(const Credentials &credentials, InvoiceData &data); not implemented yet
 }

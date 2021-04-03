@@ -1,3 +1,11 @@
+//
+// MIT License
+//
+// Copyright (c) 2021 WattMann
+//
+// Distributed under the MIT License. (See accompanying file LICENSE)
+//
+
 #include <profitapi/profitapi.hpp>
 #include <curl/curl.h>
 #include <nlohmann/json.hpp>
@@ -15,8 +23,8 @@ profitapi::KeyDataResponse profitapi::generateKey(const profitapi::Credentials &
 
     if(handle) {
         std::string url = fmt::format("https://{host}/{version}/{context}",
-                                      fmt::arg("host", credentials.profitapi_host),
-                                      fmt::arg("version", credentials.api_version),
+                                      fmt::arg("host", credentials.host),
+                                      fmt::arg("version", credentials.version),
                                       fmt::arg("context", "company/security/apikeys"));
         std::string response_str;
 
@@ -47,7 +55,7 @@ profitapi::KeyDataResponse profitapi::generateKey(const profitapi::Credentials &
         auto code = curl_easy_perform(handle);
         if(code != CURLE_OK) {
             response.state = State::CURL_ERROR;
-            response.stateDesc = "Failed to perform a request";
+            response.stateDesc = "Failed to perform the request";
         } else {
             try {
                 nlohmann::json response_json = nlohmann::json::parse(response_str);
