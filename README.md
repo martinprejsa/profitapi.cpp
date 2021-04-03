@@ -1,15 +1,16 @@
-# profitapi-lib
-C++ Library that interfaces with profit365.eu
+# profitapi.cpp
+C++ library for working with [Profit365](https://profit365.eu/) online accounting application.
 
 Dependencies:<br>
 - [nlohmann/json](https://github.com/nlohmann/json) <br>
 - [libcurl](https://curl.se/libcurl/) <br>
 - [fmt](https://fmt.dev/latest/index.html)
 
-#### Currently supporting:
-- Generating API key
+#### Implemented actions
 
-### TODO:
-- Invoice generate
-- Invoice delete
-- Invoice update
+ - [x] Generating API  keys
+ - [ ] Creating invoices
+ - [ ] Deleting invoices
+ - [ ] Listing invoices
+ - [ ] Downloading invoices
+
