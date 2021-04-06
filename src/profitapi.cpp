@@ -63,7 +63,8 @@ profitapi::KeyDataResponse profitapi::generateKey(const profitapi::Credentials &
                 response.stateDesc = "OK";
                 response.key = response_json["key"].get<std::string>();
                 response.ID = response_json["id"].get<std::string>();
-                response.userName = response_json["userName"].get<std::string>();
+                response.userName = data.userName;
+                // response.userName = response_json["userName"].get<std::string>(); Mysteriously disappeared
                 response.ipWhitelist = response_json["ipAllowed"].get<std::vector<std::string>>();
                 response.ipBlacklist = response_json["ipDenied"].get<std::vector<std::string>>();
             } catch (...) {
