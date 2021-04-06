@@ -13,7 +13,7 @@ add_library(profitapi SHARED src/profitapi.cpp)
 
 if(UNIX)
     install(TARGETS profitapi DESTINATION lib)
-    install(DIRECTORY include/ DESTINATION include/profitapi)
+    install(DIRECTORY include/ DESTINATION include)
 endif()
 
 target_link_libraries(profitapi PUBLIC curl)
